@@ -143,7 +143,3 @@ class Satellite(Coordinates):
 
     def find_eclipsed(self):
         return self.tle_parsed.eclipsed
-
-
-ISS = Satellite(25544)
-print(ISS.is_eclipsed)
