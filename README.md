@@ -10,8 +10,10 @@ For example:
     
 # Imports
     from orbiting import Satellite, Coordinate
-  
-    iss = Satellite(25544) // We do this as it is the Celestrak.org catalog number. 
+ 
+# Initializing 
+    iss = Satellite(25544) // We do this as it is the Celestrak.org catalog number.
+    coord = Coordinates(1.1234, 2.1234) // Latitude goes before longtitude when initializing it. It is the same as writing the pair down.
   
 # Get the current lat/long of the satellite
     iss_current_latitude = iss.lat()
@@ -36,15 +38,9 @@ For example:
     iss.eclipsed
     
 # To get the closest city
-    
     iss.closest_city(accuracy) // Accuracy by default is set to 10. This could take at most 3 seconds depending on the satellites location. Put in a lower accuracy to reduce time. Accuracy can either be a float or int.
     
 # To get the closest city of any pair of latitude and longtitude
-
-    // Latitude goes before longtitude when initializing it. It is the same as writing the pair down.
-
-    coord = Coordinates(1.1234, 2.1234)
-
     coord.closest_city(accuracy) // Accuracy by default is set to 10. This could take at most 3 seconds depending on the satellites location. Put in a lower accuracy to reduce time. Accuracy can either be a float or int.
   
     
