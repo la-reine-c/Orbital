@@ -8,7 +8,6 @@ setup(name='orbital',
       author_email='lawrence.tn.carter@gmail.com',
       liscence='MIT',
       long_description=open('README.md').read(),
-      packages=['orbital']
       install_requires=[
           'lxml',
           'requests',
