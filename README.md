@@ -42,7 +42,11 @@ For example:
     
 # To get the closest city of any pair of latitude and longtitude
     coord.closest_city(accuracy) // Accuracy by default is set to 10. This could take at most 3 seconds depending on the satellites location. Put in a lower accuracy to reduce time. Accuracy can either be a float or int.
-  
+
+# Get the difference in km between two latitudes, longtitudes
+    coord.distance_between_two_coordinates(lat2, long2) // The lat2 is the latitude of the second pair of coordinates and long2 is the longtitude of the second pair of coordinates.
+    
+    iss.distance_between_two_coordinates(lat2, long2) // The lat2 is the latitude of the second pair of coordinates and long2 is the longtitude of the second pair of coordinates.
     
     
    
