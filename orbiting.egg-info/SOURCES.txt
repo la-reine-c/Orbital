@@ -1,7 +1,0 @@
-README.md
-setup.py
-orbiting.egg-info/PKG-INFO
-orbiting.egg-info/SOURCES.txt
-orbiting.egg-info/dependency_links.txt
-orbiting.egg-info/requires.txt
-orbiting.egg-info/top_level.txt
