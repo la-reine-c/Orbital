@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='orbital',
+setup(name='orbiting',
       version='0.01',
       description='Combines Celestrak.org with a reverse-gecoder',
       url='https://github.com/la-reine-c/Orbital',

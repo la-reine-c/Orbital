@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: orbiting
+Version: 0.1
+Summary: Combines Celestrak.org with a reverse-gecoder
+Home-page: https://github.com/la-reine-c/Orbital
+Author: Lawrence Carter
+Author-email: lawrence.tn.carter@gmail.com
+
+# Orbital
+Combines Celestrak.org with an efficient reverse-gecoder

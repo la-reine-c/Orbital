@@ -2,11 +2,20 @@ import pandas as pd
 import country_converter as coco
 from math import radians, cos, sin, asin, sqrt, atan2
 from orbit import satellite
-import orbit.tle
-from lxml import html
-import requests
 
-df = pd.read_csv(r"Orbital\rg_cities1000.csv")
+
+def calc_year(year):
+    twentieth = ('6', '7', '8', '9')
+    twenty_first = ('0', '1', '2', '3', '4', '5')
+    if year.startswith(twentieth):
+        return "19%s" % year
+    elif year.startswith(twenty_first):
+        return "20%s" % year
+    else:
+        return year
+
+
+df = pd.read_csv(r"rg_cities1000.csv")
 class Coordinates:
     def __init__(self, lat, long):
         self.lat = lat
@@ -88,9 +97,53 @@ class Coordinates:
         return c * r
 
 
-class Satellite(Coordinates):
+from math import degrees
 
+import tle
+
+
+class Satellite(Coordinates):
     def __init__(self, catnr):
-        self.catnr = catnr
-        self.satelliteInfo = satellite(catnr)
-        super().__init__(self.satelliteInfo.lat(), self.satelliteInfo.long())
+        self.tle_raw = tle.get(catnr)
+        self.tle_parsed = tle.parse(self.tle_raw[0], self.tle_raw[1], self.tle_raw[2])
+        self.name = self.find_name()
+        self.catalog_number = self.find_catalog_number()
+        self.elsat_classification = self.find_elsat_classification()
+        self.launch_year = self.find_launch_year()
+        self.tle = self.find_tle()
+        self.lat = self.find_lat()
+        self.long = self.find_long()
+        self.elevation = self.find_elevation()
+        self.is_eclipsed = self.find_eclipsed()
+        super().__init__(self.lat, self.long)
+
+    def find_name(self):
+        return self.tle_raw[0].strip()
+
+    def find_catalog_number(self):
+        return self.tle_raw[1][2:7]
+
+    def find_elsat_classification(self):
+        return self.tle_raw[1][7]
+
+    def find_launch_year(self):
+        return calc_year(self.tle_raw[1][9:11])
+
+    def find_tle(self):
+        return [self.tle_raw[0], self.tle_raw[1], self.tle_raw[2]]
+
+    def find_lat(self):
+        return degrees(self.tle_parsed.sublat)
+
+    def find_long(self):
+        return degrees(self.tle_parsed.sublong)
+
+    def find_elevation(self):
+        return self.tle_parsed.elevation
+
+    def find_eclipsed(self):
+        return self.tle_parsed.eclipsed
+
+
+ISS = Satellite(25544)
+print(ISS.is_eclipsed)
