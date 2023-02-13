@@ -16,8 +16,8 @@ For example:
     coord = Coordinates(1.1234, 2.1234) // Latitude goes before longtitude when initializing it. It is the same as writing the pair down.
   
 # Get the current lat/long of the satellite
-    iss.lat()
-    iss.long()
+    iss.lat
+    iss.long
     
 # Get the proper name of the satellite
     iss.name
