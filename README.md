@@ -8,12 +8,12 @@ For example:
     Users/user/Project/orbiting
     Users/user/Project/ActualCode
     
-## How to use it:
-  from orbiting import Satellite
+    # How to use it:
+    from orbiting import Satellite
   
-  iss = Satellite(25544) // We do this as it is the Celestrak.org catalog number. 
+    iss = Satellite(25544) // We do this as it is the Celestrak.org catalog number. 
   
-  # Get the current lat/long of the satellite
+    # Get the current lat/long of the satellite
     iss_current_latitude = iss.lat()
     iss_current_longitude = iss.long()
     
@@ -37,15 +37,15 @@ For example:
     
     # To get the closest city
     
-    iss.closest_city(accuracy) // Accuracy by default is set to 10. This could take at most 3 seconds depending on the satellites location. Put in a lower accuracy to                                // reduce time. Accuracy can either be a float or int.
+    iss.closest_city(accuracy) // Accuracy by default is set to 10. This could take at most 3 seconds depending on the satellites location. Put in a lower accuracy to reduce time. Accuracy can either be a float or int.
     
-# To get the closest city of any pair of latitude and longtitude
-    
-// Latitude goes before longtitude when initializing it. It is the same as writing the pair down.
+    # To get the closest city of any pair of latitude and longtitude
 
-coord = Coordinates(1.1234, 2.1234)
+    // Latitude goes before longtitude when initializing it. It is the same as writing the pair down.
 
-coord.closest_city(accuracy) // Accuracy by default is set to 10. This could take at most 3 seconds depending on the satellites location. Put in a lower accuracy to                                 // reduce time. Accuracy can either be a float or int.
+    coord = Coordinates(1.1234, 2.1234)
+
+    coord.closest_city(accuracy) // Accuracy by default is set to 10. This could take at most 3 seconds depending on the satellites location. Put in a lower accuracy to reduce time. Accuracy can either be a float or int.
   
     
     
