@@ -1,5 +1,0 @@
-lxml
-requests
-pandas
-orbit
-country_converter
