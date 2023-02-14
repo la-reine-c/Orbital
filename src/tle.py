@@ -1,14 +1,9 @@
-from lxml import html
 import requests
-import requests_cache
 import ephem
 
 
-requests_cache.install_cache(expire_after=86400)
-
-
 def get(catnr):
-    page = html.fromstring(requests.get(f'http://www.celestrak.com/cgi-bin/TLE.pl?CATNR='+str(catnr)).text)
+    page = requests.get(f'http://www.celestrak.com/cgi-bin/TLE.pl?CATNR='+str(catnr))
     tle = page.text.split('\n')
     return tle[0].strip(), tle[1].strip(), tle[2].strip()
 
