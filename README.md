@@ -2,7 +2,7 @@
 Combines Celestrak.org with an efficient reverse-gecoder
     
 # Imports
-    from orbiting import Satellite, Coordinate
+    from orbiting import Satellite, Coordinates
  
 # Initializing 
     iss = Satellite(25544) // We do this as it is the Celestrak.org catalog number.
