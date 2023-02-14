@@ -1,12 +1,5 @@
 # Orbital
 Combines Celestrak.org with an efficient reverse-gecoder
-
-
-To use make sure that the folder orbiting is in the same directory as your code
-
-For example:
-    Users/user/Project/orbiting
-    Users/user/Project/ActualCode
     
 # Imports
     from orbiting import Satellite, Coordinate
